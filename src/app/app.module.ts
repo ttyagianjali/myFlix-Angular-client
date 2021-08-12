@@ -23,10 +23,12 @@ import { MovieGenreComponent } from './movie-genre/movie-genre.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserProfileDeleteComponent } from './user-profile-delete/user-profile-delete.component';
 import { UserProfileUpdateComponent } from './user-profile-update/user-profile-update.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     MovieGenreComponent,
     NavBarComponent,
     UserProfileDeleteComponent,
-    UserProfileUpdateComponent
+    UserProfileUpdateComponent,
+    UserProfileComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
