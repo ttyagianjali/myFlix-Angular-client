@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
  */
 export class MovieCardComponent {
   movies: any[] = [];
-  //favoritemovies: any[] = [];
+  favoritemovies: any[] = [];
 
   constructor(public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -26,7 +26,7 @@ export class MovieCardComponent {
    */
   ngOnInit(): void {
     this.getMovies();
-    //this.modifyfavoriteuser();
+    this.modifyfavoriteuser();
   }
   
  /**
@@ -40,38 +40,38 @@ export class MovieCardComponent {
     });
   }
 
-//   modifyfavoriteuser(): void {
-//     const user = localStorage.getItem('user');
-//     this.fetchApiData.getUser(user).subscribe((resp: any) => {
-//       this.favoritemovies = resp.FavoriteMovies;
-//     });
-//   }
+  modifyfavoriteuser(): void {
+    const user = localStorage.getItem('user');
+    this.fetchApiData.getUser(user).subscribe((resp: any) => {
+      this.favoritemovies = resp.FavoriteMovies;
+    });
+  }
 
-//   isFavorite(movieID: string) {
-//     return this.favoritemovies.includes(movieID);
-//   }
+  isFavorite(movieID: string) {
+    return this.favoritemovies.includes(movieID);
+  }
 
-//   adddeletefavorite(movieId: string): any {
-//     if (this.isFavorite(movieId)) {
-//       this.fetchApiData.removeFavorite(movieId).subscribe((resp: any) => {
-//         this.snackBar.open('Removed from favorites!', 'OK', {
-//           duration: 2000,
-//         });
-//       });
-//       const index = this.favoritemovies.indexOf(movieId);
-//       return this.favoritemovies.splice(index, 1);
-//     } else {console.log(this.favoritemovies
-//       );
-//       this.fetchApiData.addFavorite(movieId).subscribe((response: any) => {
-//         this.snackBar.open('Added to favorites!', 'OK', {
-//           duration: 2000,
-//         });console.log(this.favoritemovies
-//           );
-//       });
-//     } console.log(this.favoritemovies
-//       );
-//     return this.favoritemovies.push(movieId);
-//   }
+  adddeletefavorite(movieId: string): any {
+    if (this.isFavorite(movieId)) {
+      this.fetchApiData.removeFavorite(movieId).subscribe((resp: any) => {
+        this.snackBar.open('Removed from favorites!', 'OK', {
+          duration: 2000,
+        });
+      });
+      const index = this.favoritemovies.indexOf(movieId);
+      return this.favoritemovies.splice(index, 1);
+    } else {console.log(this.favoritemovies
+      );
+      this.fetchApiData.addFavorite(movieId).subscribe((response: any) => {
+        this.snackBar.open('Added to favorites!', 'OK', {
+          duration: 2000,
+        });console.log(this.favoritemovies
+          );
+      });
+    } console.log(this.favoritemovies
+      );
+    return this.favoritemovies.push(movieId);
+  }
 
  /**
    * This method will activate dialog/modal which displays info on movie director.
