@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
-// import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
-// import { MovieDirectorComponent } from '../movie-director/movie-director.component';
+import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
+import { MovieDirectorComponent } from '../movie-director/movie-director.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -73,40 +73,40 @@ export class MovieCardComponent {
 //     return this.favoritemovies.push(movieId);
 //   }
 
-//  /**
-//    * This method will activate dialog/modal which displays info on movie director.
-//    * @param name - director name
-//    * @param bio - director biography
-//    * @param born - director date of birth
-//    * @param death - director date of death
-//    */
-//   getDirector(name: string,
-//     bio: string,
-//     born: string,
-//     death: string): void {
-//     this.dialog.open(MovieDirectorComponent, {
-//       data: {
-//         Name: name,
-//         Bio: bio,
-//         Born: born,
-//         Death: death
-//       }
-//     });
-//   }
-// /**
-//    * This method will activate dialog/modal which displays info on movie genres.
-//    * @param name - genre name
-//    * @param description - genre summary
-//    */
-//   getGenre(name: string,
-//     description: string,
-//   ): void {
-//     this.dialog.open(MovieGenreComponent, {
-//       data: {
-//         Name: name,
-//         Description: description,
-//       }
-//     });
-//   }
+ /**
+   * This method will activate dialog/modal which displays info on movie director.
+   * @param name - director name
+   * @param bio - director biography
+   * @param born - director date of birth
+   * @param death - director date of death
+   */
+  getDirector(name: string,
+    bio: string,
+    born: string,
+    death: string): void {
+    this.dialog.open(MovieDirectorComponent, {
+      data: {
+        Name: name,
+        Bio: bio,
+        Born: born,
+        Death: death
+      }
+    });
+  }
+/**
+   * This method will activate dialog/modal which displays info on movie genres.
+   * @param name - genre name
+   * @param description - genre summary
+   */
+  getGenre(name: string,
+    description: string,
+  ): void {
+    this.dialog.open(MovieGenreComponent, {
+      data: {
+        Name: name,
+        Description: description,
+      }
+    });
+  }
 
 }
